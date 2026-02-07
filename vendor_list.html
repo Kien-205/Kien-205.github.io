@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Malaysia Mechanical Keyboard Vendor List (2025)</title>
+    <meta name="description" content="The ultimate directory of mechanical keyboard shops in Malaysia. Find where to buy switches, keycaps, lubricants, and custom kits from local trusted vendors.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- GLOBAL CSS --- */
+        :root { --bg-body: #121212; --bg-panel: #1e1e1e; --bg-header: #181818; --text-main: #e0e0e0; --text-muted: #a0a0a0; --accent-primary: #00e5ff; --accent-secondary: #ff0055; --border-color: #333333; --font-main: 'Inter', sans-serif; --font-mono: 'JetBrains Mono', monospace; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: var(--font-main); background-color: var(--bg-body); color: var(--text-main); line-height: 1.6; display: flex; flex-direction: column; min-height: 100vh; }
+        a { text-decoration: none; color: inherit; transition: color 0.2s ease; }
+        ul { list-style: none; }
+        header { background-color: var(--bg-header); border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 6px rgba(0,0,0,0.3); }
+        .nav-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; height: 70px; display: flex; align-items: center; justify-content: space-between; }
+        .logo { font-family: var(--font-mono); font-weight: 700; font-size: 1.5rem; color: var(--text-main); display: flex; align-items: center; gap: 10px; }
+        .logo span { color: var(--accent-primary); }
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a { font-weight: 600; font-size: 0.95rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; padding: 5px 0; position: relative; }
+        .nav-links a:hover { color: var(--text-main); }
+        .nav-links a:hover::after { width: 100%; }
+        .nav-links a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background-color: var(--accent-secondary); transition: width 0.3s ease; }
+        .main-wrapper { flex: 1; max-width: 1200px; margin: 0 auto; width: 100%; padding: 40px 20px; }
+        .breadcrumbs { font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px; }
+        .breadcrumbs span { color: var(--accent-primary); }
+        footer { background-color: var(--bg-header); border-top: 1px solid var(--border-color); padding: 40px 20px; margin-top: auto; }
+        .footer-content { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; }
+        .footer-col h4 { color: var(--text-main); margin-bottom: 20px; font-size: 1.1rem; border-left: 3px solid var(--accent-primary); padding-left: 10px; }
+        .footer-col ul li { margin-bottom: 10px; }
+        .copyright { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #333; color: var(--text-muted); font-size: 0.9rem; }
+        @media (max-width: 768px) { .nav-links { display: none; } .footer-content { grid-template-columns: 1fr; } }
+        .menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; color: var(--text-main); }
+        @media (max-width: 768px) { .menu-toggle { display: block; } }
+
+        /* --- PAGE SPECIFIC CSS --- */
+        .vendor-container { max-width: 1000px; margin: 0 auto; }
+        .section-header { border-bottom: 1px solid var(--border-color); padding-bottom: 15px; margin: 50px 0 30px 0; color: var(--text-main); font-size: 1.8rem; }
+        .vendor-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .vendor-card { background: var(--bg-panel); border: 1px solid var(--border-color); border-radius: 12px; padding: 25px; display: flex; flex-direction: column; transition: transform 0.2s ease, border-color 0.2s ease; }
+        .vendor-card:hover { transform: translateY(-5px); border-color: var(--accent-primary); }
+        .vendor-header { display: flex; justify-content: space-between; align-items: start; margin-bottom: 15px; }
+        .vendor-name { font-size: 1.4rem; font-weight: 700; color: var(--text-main); margin: 0; }
+        .vendor-desc { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 20px; flex-grow: 1; }
+        .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 15px; }
+        .tag { font-size: 0.75rem; padding: 4px 8px; border-radius: 4px; font-weight: 600; text-transform: uppercase; }
+        .tag.premium { background: rgba(255, 0, 85, 0.15); color: var(--accent-secondary); border: 1px solid var(--accent-secondary); }
+        .tag.budget { background: rgba(46, 204, 113, 0.15); color: #2ecc71; border: 1px solid #2ecc71; }
+        .tag.parts { background: rgba(0, 229, 255, 0.15); color: var(--accent-primary); border: 1px solid var(--accent-primary); }
+        .tag.groupbuy { background: rgba(155, 89, 182, 0.15); color: #9b59b6; border: 1px solid #9b59b6; }
+        .visit-btn { text-align: center; background: #333; color: #fff; padding: 10px; border-radius: 6px; text-decoration: none; transition: background 0.2s; font-weight: 600; }
+        .visit-btn:hover { background: var(--accent-primary); color: #121212; }
+        .note-box { background: rgba(255, 255, 255, 0.05); border-left: 4px solid var(--accent-primary); padding: 20px; margin-bottom: 40px; border-radius: 0 8px 8px 0; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Keeb<span>Kustoms</span></a>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="beginners_guide.html">Guide</a>
+                <a href="keyboard_switches_guide.html">Switches</a>
+                <a href="keycaps_guide.html">Keycaps</a>
+                <a href="vendor_list.html">Vendors</a>
+            </nav>
+            <div class="menu-toggle">☰</div>
+        </div>
+    </header>
+
+    <main class="main-wrapper">
+        <div class="breadcrumbs"><a href="index.html">Home</a> / <span>Vendor List</span></div>
+        <div class="vendor-container">
+            <h1>Malaysia Vendor Directory</h1>
+            <p class="intro">Support local businesses to save on shipping times and import taxes.</p>
+            <div class="note-box"><strong>Note:</strong> "In-Stock" means it ships immediately. "Group Buy" means you might wait months.</div>
+
+            <h2 class="section-header">Specialty & Enthusiast Stores</h2>
+            <div class="vendor-grid">
+                <article class="vendor-card">
+                    <div class="vendor-header"><h3 class="vendor-name">Mecha Store</h3></div>
+                    <div class="tags"><span class="tag premium">Premium</span><span class="tag groupbuy">Group Buys</span></div>
+                    <p class="vendor-desc">High-end custom kits (QwertyKeys, Zoom), GMK keycaps. Physical showroom in Subang.</p>
+                    <a href="https://www.mecha.com.my/" target="_blank" class="visit-btn">Visit Store &rarr;</a>
+                </article>
+
+                <article class="vendor-card">
+                    <div class="vendor-header"><h3 class="vendor-name">Rebult Keyboards</h3></div>
+                    <div class="tags"><span class="tag parts">Components</span><span class="tag groupbuy">Proxies</span></div>
+                    <p class="vendor-desc">Go-to for individual switches, Krytox lubricants, stabilizers, and GB proxies.</p>
+                    <a href="https://www.rebultkeyboards.com/" target="_blank" class="visit-btn">Visit Store &rarr;</a>
+                </article>
+
+                <article class="vendor-card">
+                    <div class="vendor-header"><h3 class="vendor-name">MKB.MY</h3></div>
+                    <div class="tags"><span class="tag budget">Mid-Range</span><span class="tag parts">Accessories</span></div>
+                    <p class="vendor-desc">Reliable local vendor for parts, budget-friendly kits, and accessories.</p>
+                    <a href="https://mkb.gg/" target="_blank" class="visit-btn">Visit Store &rarr;</a>
+                </article>
+            </div>
+
+            <h2 class="section-header">Official Distributors & Marketplaces</h2>
+            <div class="vendor-grid">
+                <article class="vendor-card">
+                    <div class="vendor-header"><h3 class="vendor-name">Shopee MY</h3></div>
+                    <div class="tags"><span class="tag budget">Budget Kings</span></div>
+                    <p class="vendor-desc">Massive marketplace. Look for "Local Seller" for fast shipping on Akko switches and budget boards.</p>
+                    <a href="https://shopee.com.my/search?keyword=mechanical%20keyboard" target="_blank" class="visit-btn">Search Shopee &rarr;</a>
+                </article>
+
+                <article class="vendor-card">
+                    <div class="vendor-header"><h3 class="vendor-name">Lazada MY</h3></div>
+                    <div class="tags"><span class="tag parts">Taobao Direct</span></div>
+                    <p class="vendor-desc">Great for official flagship stores and Taobao Collection.</p>
+                    <a href="https://www.lazada.com.my/catalog/?q=mechanical+keyboard" target="_blank" class="visit-btn">Search Lazada &rarr;</a>
+                </article>
+
+                <article class="vendor-card">
+                    <div class="vendor-header"><h3 class="vendor-name">Keychron Malaysia</h3></div>
+                    <div class="tags"><span class="tag budget">Pre-built</span><span class="tag parts">Mac</span></div>
+                    <p class="vendor-desc">Official distributor for Keychron. Solid pre-built aluminum boards with local warranty.</p>
+                    <a href="#" target="_blank" class="visit-btn">Visit Store &rarr;</a>
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>About KeebKustoms</h4>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">The leading hub for mechanical keyboard customisation in Malaysia.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="beginners_guide.html">Beginner's Guide</a></li>
+                    <li><a href="keyboard_switches_guide.html">Switch Guide</a></li>
+                    <li><a href="keycaps_guide.html">Keycaps Guide</a></li>
+                    <li><a href="vendor_list.html">Vendor List (MY)</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Community</h4>
+                <ul>
+                    <li><a href="https://discord.com/">Discord Server</a></li>
+                    <li><a href="https://www.reddit.com/r/MechanicalKeyboards/">Reddit /r/mk</a></li>
+                    <li><a href="https://www.instagram.com/">Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">&copy; 2025 KeebKustoms. All rights reserved.</div>
+    </footer>
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T5JKHQ4ZSD"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-T5JKHQ4ZSD');
+    </script>
+</body>
+</html>

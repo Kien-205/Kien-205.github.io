@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Complete Guide to Mechanical Keyboard Switches (2025 Edition)</title>
+    <meta name="description" content="Linear vs Tactile vs Clicky? Find the perfect switch for your mechanical keyboard. We cover actuation force, sound profiles, and the best switches available in Malaysia.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- GLOBAL CSS --- */
+        :root { --bg-body: #121212; --bg-panel: #1e1e1e; --bg-header: #181818; --text-main: #e0e0e0; --text-muted: #a0a0a0; --accent-primary: #00e5ff; --accent-secondary: #ff0055; --border-color: #333333; --font-main: 'Inter', sans-serif; --font-mono: 'JetBrains Mono', monospace; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: var(--font-main); background-color: var(--bg-body); color: var(--text-main); line-height: 1.6; display: flex; flex-direction: column; min-height: 100vh; }
+        a { text-decoration: none; color: inherit; transition: color 0.2s ease; }
+        ul { list-style: none; }
+        header { background-color: var(--bg-header); border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 6px rgba(0,0,0,0.3); }
+        .nav-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; height: 70px; display: flex; align-items: center; justify-content: space-between; }
+        .logo { font-family: var(--font-mono); font-weight: 700; font-size: 1.5rem; color: var(--text-main); display: flex; align-items: center; gap: 10px; }
+        .logo span { color: var(--accent-primary); }
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a { font-weight: 600; font-size: 0.95rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; padding: 5px 0; position: relative; }
+        .nav-links a:hover { color: var(--text-main); }
+        .nav-links a:hover::after { width: 100%; }
+        .nav-links a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background-color: var(--accent-secondary); transition: width 0.3s ease; }
+        .main-wrapper { flex: 1; max-width: 1200px; margin: 0 auto; width: 100%; padding: 40px 20px; }
+        .breadcrumbs { font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px; }
+        .breadcrumbs span { color: var(--accent-primary); }
+        footer { background-color: var(--bg-header); border-top: 1px solid var(--border-color); padding: 40px 20px; margin-top: auto; }
+        .footer-content { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; }
+        .footer-col h4 { color: var(--text-main); margin-bottom: 20px; font-size: 1.1rem; border-left: 3px solid var(--accent-primary); padding-left: 10px; }
+        .footer-col ul li { margin-bottom: 10px; }
+        .copyright { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #333; color: var(--text-muted); font-size: 0.9rem; }
+        @media (max-width: 768px) { .nav-links { display: none; } .footer-content { grid-template-columns: 1fr; } }
+        .menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; color: var(--text-main); }
+        @media (max-width: 768px) { .menu-toggle { display: block; } }
+
+        /* --- PAGE SPECIFIC CSS --- */
+        .switch-guide-container { max-width: 900px; margin: 0 auto; }
+        .section-title { color: var(--text-main); font-size: 2rem; margin-top: 50px; margin-bottom: 25px; padding-bottom: 10px; border-bottom: 1px solid var(--border-color); display: flex; align-items: center; gap: 15px; }
+        .section-title span { color: var(--accent-primary); font-size: 1.5rem; }
+        p { color: #d0d0d0; margin-bottom: 20px; font-size: 1.05rem; line-height: 1.8; }
+        .switch-types-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin: 40px 0; }
+        .switch-card { background: var(--bg-panel); border: 1px solid var(--border-color); border-radius: 12px; padding: 25px; transition: transform 0.2s, border-color 0.2s; }
+        .switch-card:hover { transform: translateY(-5px); border-color: var(--accent-primary); }
+        .switch-header { display: flex; align-items: center; margin-bottom: 15px; gap: 10px; }
+        .color-dot { width: 15px; height: 15px; border-radius: 50%; display: inline-block; }
+        .switch-card h3 { font-size: 1.4rem; margin: 0; }
+        .switch-card ul { list-style: none; margin-top: 15px; padding: 0; font-size: 0.9rem; color: var(--text-muted); }
+        .switch-card li { margin-bottom: 8px; padding-left: 15px; border-left: 2px solid var(--border-color); }
+        .tech-table { width: 100%; border-collapse: collapse; margin: 30px 0; background: var(--bg-panel); border-radius: 8px; overflow: hidden; }
+        .tech-table th, .tech-table td { padding: 15px; text-align: left; border-bottom: 1px solid var(--border-color); }
+        .tech-table th { background: #252525; color: var(--accent-primary); text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; }
+        .rec-badge { display: inline-block; padding: 4px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: bold; text-transform: uppercase; margin-right: 8px; }
+        .badge-budget { background: #2ecc71; color: #121212; }
+        .badge-premium { background: #f1c40f; color: #121212; }
+        .badge-clicky { background: #3498db; color: #fff; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Keeb<span>Kustoms</span></a>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="beginners_guide.html">Guide</a>
+                <a href="keyboard_switches_guide.html">Switches</a>
+                <a href="keycaps_guide.html">Keycaps</a>
+                <a href="vendor_list.html">Vendors</a>
+            </nav>
+            <div class="menu-toggle">☰</div>
+        </div>
+    </header>
+
+    <main class="main-wrapper">
+        <div class="breadcrumbs"><a href="index.html">Home</a> / <span>Switch Guide</span></div>
+        <div class="switch-guide-container">
+            <h1>The Complete Guide to Mechanical Switches</h1>
+            <p class="intro">The switch is the soul of the mechanical keyboard. Whether you want a silent office board or a "thocky" gaming setup, it all starts here.</p>
+            <img src="images/switches-hero.jpg" alt="Mechanical Keyboard Switches Breakdown" style="width:100%; border-radius:8px; margin-bottom:30px; border:1px solid var(--border-color);">
+
+            <h2 class="section-title"><span>01.</span> Know the Lingo</h2>
+            <table class="tech-table">
+                <tr><th>Term</th><th>Definition</th></tr>
+                <tr><td><strong>Actuation Force</strong></td><td>How hard you need to press (measured in grams/gf).</td></tr>
+                <tr><td><strong>Bottom-out</strong></td><td>Force required to press the key all the way down.</td></tr>
+            </table>
+
+            <h2 class="section-title"><span>02.</span> The Three Main Types</h2>
+            <div class="switch-types-grid">
+                <article class="switch-card">
+                    <div class="switch-header"><span class="color-dot" style="background:#e74c3c;"></span><h3>Linear</h3></div>
+                    <p>Smooth consistent keystroke. Best for Gaming.</p>
+                </article>
+                <article class="switch-card">
+                    <div class="switch-header"><span class="color-dot" style="background:#8e44ad;"></span><h3>Tactile</h3></div>
+                    <p>Noticeable "bump" in the middle. Best for Typing.</p>
+                </article>
+                <article class="switch-card">
+                    <div class="switch-header"><span class="color-dot" style="background:#3498db;"></span><h3>Clicky</h3></div>
+                    <p>Tactile bump with a sharp audible "click".</p>
+                </article>
+            </div>
+
+            <h2 class="section-title"><span>03.</span> Top Picks for 2025 (MY Market)</h2>
+            <h3 style="color: var(--text-main); margin-bottom: 15px;">Linear Recommendations</h3>
+            <ul style="list-style:none; padding:0;">
+                <li style="margin-bottom:20px; border-bottom:1px solid #333; padding-bottom:15px;">
+                    <span class="rec-badge badge-budget">Budget King</span> <strong>Gateron Milky Yellow Pro</strong><br>
+                    <span style="color:var(--text-muted); font-size:0.9rem;">Price: ~RM 0.70 / switch</span><br>
+                    Insane value. Factory lubed and very smooth.
+                </li>
+                <li style="margin-bottom:20px;">
+                    <span class="rec-badge badge-premium">Premium</span> <strong>Gateron Oil King</strong><br>
+                    <span style="color:var(--text-muted); font-size:0.9rem;">Price: ~RM 2.80 / switch</span><br>
+                    Deep, "thocky" sound right out of the box.
+                </li>
+            </ul>
+
+            <h3 style="color: var(--text-main); margin-bottom: 15px; margin-top:30px;">Clicky Recommendations</h3>
+            <ul style="list-style:none; padding:0;">
+                <li style="margin-bottom:20px; border-bottom:1px solid #333; padding-bottom:15px;">
+                    <span class="rec-badge badge-budget">Budget King</span> <strong>Kailh Box White V2</strong><br>
+                    <span style="color:var(--text-muted); font-size:0.9rem;">Price: ~RM 1.20 / switch</span>
+                </li>
+                <li style="margin-bottom:20px;">
+                    <span class="rec-badge badge-premium">Premium</span> <strong>ZealPC Clickiez</strong><br>
+                    <span style="color:var(--text-muted); font-size:0.9rem;">Price: ~RM 5.50 / switch</span><br>
+                    The "Rolls Royce" of clicky switches. Massive tactile snap.
+                </li>
+            </ul>
+        </div>
+    </main>
+    
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>About KeebKustoms</h4>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">The leading hub for mechanical keyboard customisation in Malaysia.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="beginners_guide.html">Beginner's Guide</a></li>
+                    <li><a href="keyboard_switches_guide.html">Switch Guide</a></li>
+                    <li><a href="keycaps_guide.html">Keycaps Guide</a></li>
+                    <li><a href="vendor_list.html">Vendor List (MY)</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Community</h4>
+                <ul>
+                    <li><a href="https://discord.com/">Discord Server</a></li>
+                    <li><a href="https://www.reddit.com/r/MechanicalKeyboards/">Reddit /r/mk</a></li>
+                    <li><a href="https://www.instagram.com/">Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">&copy; 2025 KeebKustoms. All rights reserved.</div>
+    </footer>
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T5JKHQ4ZSD"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-T5JKHQ4ZSD');
+    </script>
+</body>
+</html>

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>KeebKustoms | Simple Guide to Custom Keyboards</title>
+    <meta name="description" content="A beginner-friendly guide to custom mechanical keyboard customisation. Learn about switches, keycaps, and how to build your first keyboard.">
+    
+    <!-- Geo-targeting Meta Tags for Local SEO (Malaysia) -->
+    <meta name="geo.region" content="MY">
+    <meta name="geo.placename" content="Malaysia">
+    <meta name="geo.position" content="4.2105;101.9758">
+    <meta name="ICBM" content="4.2105, 101.9758">
+
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="KeebKustoms | Simple Guide to Custom Keyboards">
+    <meta property="og:description" content="A beginner-friendly guide to custom mechanical keyboard customisation. Learn about switches, keycaps, and how to build your first keyboard.">
+    <meta property="og:image" content="images/aesthetic_colorful_mechanical_keyboard.jpg">
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "KeebKustoms",
+        "alternateName": "KeebKustoms Malaysia",
+        "description": "A beginner-friendly guide to custom mechanical keyboard customisation. Learn about switches, keycaps, and how to build your first keyboard."
+    }
+    </script>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- GLOBAL CSS --- */
+        :root {
+            --bg-body: #121212;
+            --bg-panel: #1e1e1e;
+            --bg-header: #181818;
+            --text-main: #e0e0e0;
+            --text-muted: #a0a0a0;
+            --accent-primary: #00e5ff;
+            --accent-secondary: #ff0055;
+            --border-color: #333333;
+            --font-main: 'Inter', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: var(--font-main); background-color: var(--bg-body); color: var(--text-main); line-height: 1.6; display: flex; flex-direction: column; min-height: 100vh; }
+        a { text-decoration: none; color: inherit; transition: color 0.2s ease; }
+        ul { list-style: none; }
+
+        /* Header */
+        header { background-color: var(--bg-header); border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 6px rgba(0,0,0,0.3); }
+        .nav-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; height: 70px; display: flex; align-items: center; justify-content: space-between; }
+        .logo { font-family: var(--font-mono); font-weight: 700; font-size: 1.5rem; color: var(--text-main); display: flex; align-items: center; gap: 10px; }
+        .logo span { color: var(--accent-primary); }
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a { font-weight: 600; font-size: 0.95rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; padding: 5px 0; position: relative; }
+        .nav-links a:hover { color: var(--text-main); }
+        .nav-links a:hover::after { width: 100%; }
+        .nav-links a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background-color: var(--accent-secondary); transition: width 0.3s ease; }
+
+        /* Main */
+        .main-wrapper { flex: 1; max-width: 1200px; margin: 0 auto; width: 100%; padding: 40px 20px; }
+
+        /* Footer */
+        footer { background-color: var(--bg-header); border-top: 1px solid var(--border-color); padding: 40px 20px; margin-top: auto; }
+        .footer-content { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; }
+        .footer-col h4 { color: var(--text-main); margin-bottom: 20px; font-size: 1.1rem; border-left: 3px solid var(--accent-primary); padding-left: 10px; }
+        .footer-col ul li { margin-bottom: 10px; }
+        .footer-col ul li a:hover { color: var(--accent-primary); padding-left: 5px; }
+        .copyright { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #333; color: var(--text-muted); font-size: 0.9rem; }
+
+        /* Mobile */
+        .menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; color: var(--text-main); }
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .menu-toggle { display: block; }
+            .footer-content { grid-template-columns: 1fr; }
+        }
+
+        /* --- PAGE SPECIFIC CSS --- */
+        .hero-section {
+            background: linear-gradient(135deg, rgba(30,30,30,0.8), rgba(18,18,18,0.9)), 
+                        url('images/aesthetic_colorful_mechanical_keyboard.jpg');
+            background-size: cover; background-position: center; padding: 80px 40px;
+            border-radius: 12px; margin-bottom: 60px; text-align: center;
+            border: 1px solid var(--border-color); box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .hero-title {
+            font-size: 3rem; font-weight: 800; margin-bottom: 20px; letter-spacing: -1px;
+            background: -webkit-linear-gradient(0deg, var(--text-main), var(--accent-primary));
+            -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .hero-subtitle { font-size: 1.2rem; color: var(--text-muted); max-width: 700px; margin: 0 auto 40px auto; }
+        .cta-button { display: inline-block; background-color: var(--accent-secondary); color: white; padding: 12px 30px; border-radius: 6px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; transition: transform 0.2s, box-shadow 0.2s; }
+        .cta-button:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(255, 0, 85, 0.4); color: white; }
+
+        /* 2x2 Grid Layout */
+        .grid-section { display: grid; grid-template-columns: 1fr; gap: 30px; margin-bottom: 60px; }
+        @media (min-width: 768px) { .grid-section { grid-template-columns: repeat(2, 1fr); } }
+
+        .card {
+            background-color: var(--bg-panel); border: 1px solid var(--border-color);
+            border-radius: 8px; padding: 30px; transition: transform 0.2s ease, border-color 0.2s ease;
+            display: flex; flex-direction: column; justify-content: space-between;
+        }
+        .card:hover { transform: translateY(-5px); border-color: var(--accent-primary); }
+        .card-icon { font-size: 2rem; margin-bottom: 20px; color: var(--accent-primary); }
+        .card h3 { margin-bottom: 15px; font-size: 1.4rem; }
+        .card p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 20px; }
+        .read-more { color: var(--accent-primary); font-weight: 600; font-size: 0.9rem; display: flex; align-items: center; gap: 5px; }
+
+        .seo-content-block { max-width: 800px; margin: 0 auto; padding-top: 40px; border-top: 1px solid var(--border-color); }
+        .seo-content-block h2 { font-size: 2rem; margin-bottom: 25px; color: var(--text-main); }
+        .seo-content-block p { margin-bottom: 20px; color: var(--text-muted); }
+        .highlight { color: var(--accent-primary); }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Keeb<span>Kustoms</span></a>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="beginners_guide.html">Guide</a>
+                <a href="keyboard_switches_guide.html">Switches</a>
+                <a href="keycaps_guide.html">Keycaps</a>
+                <a href="vendor_list.html">Vendors</a>
+            </nav>
+            <div class="menu-toggle">☰</div>
+        </div>
+    </header>
+
+    <!-- Main Content Injection -->
+    <main class="main-wrapper">
+        <!-- Hero Banner -->
+        <section class="hero-section">
+            <h1 class="hero-title">Start Your Custom Mechanical Keyboard Journey</h1>
+            <p class="hero-subtitle">
+                A simple guide to building keyboards that feel better, sound better, and look exactly how you want them to.
+            </p>
+            <a href="beginners_guide.html" class="cta-button">Read the Basics</a>
+        </section>
+
+        <!-- Main Navigation Cards -->
+        <section class="grid-section">
+            <article class="card">
+                <div>
+                    <div class="card-icon">⌨️</div>
+                    <h3>Beginner's Guide</h3>
+                    <p>What is a mechanical keyboard? Learn the basics of sizes (60%, TKL), parts, and how to get started easily.</p>
+                </div>
+                <a href="beginners_guide.html" class="read-more">Learn the Basics &rarr;</a>
+            </article>
+
+            <article class="card">
+                <div>
+                    <div class="card-icon">⚙️</div>
+                    <h3>Guide to Switches</h3>
+                    <p>Red, Blue, or Brown? Understand the simple differences between Linear, Tactile, and Clicky switches.</p>
+                </div>
+                <a href="keyboard_switches_guide.html" class="read-more">Find Your Switch &rarr;</a>
+            </article>
+
+            <article class="card">
+                <div>
+                    <div class="card-icon">🎨</div>
+                    <h3>Types of Keycaps</h3>
+                    <p>From durable PBT plastic to smooth ABS. Discover different profiles like Cherry and SA to fit your typing style.</p>
+                </div>
+                <a href="keycaps_guide.html" class="read-more">Explore Keycaps &rarr;</a>
+            </article>
+
+            <article class="card">
+                <div>
+                    <div class="card-icon">🛍️</div>
+                    <h3>Vendor Directory</h3>
+                    <p>Where to buy parts in Malaysia? A curated list of trusted local stores for switches, lube, and custom kits.</p>
+                </div>
+                <a href="vendor_list.html" class="read-more">Shop Local &rarr;</a>
+            </article>
+        </section>
+
+        <!-- SEO Rich Text Area -->
+        <section class="seo-content-block">
+            <h2>Why Go Mechanical?</h2>
+            <p>
+                Most keyboards are just plastic sheets. A <strong class="highlight">mechanical keyboard</strong> uses individual switches for every key. It's a simple upgrade that changes how you interact with your computer every day.
+            </p>
+            <h3>1. Better Feel</h3>
+            <p>Standard keyboards feel mushy. Mechanical switches feel crisp and responsive.</p>
+            <h3>2. Custom Sound</h3>
+            <p>You can choose how your keyboard sounds. Do you want the loud "click" of a typewriter? Or the deep, quiet "thock"?</p>
+            <h3>3. Personal Style</h3>
+            <p>Keyboards don't have to be boring black rectangles. With custom keycaps, you can match your keyboard to your room.</p>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>About KeebKustoms</h4>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">
+                    The leading hub for mechanical keyboard customisation in Malaysia. From sourcing parts in KL to soldering PCBs, we help the local community.
+                </p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="beginners_guide.html">Beginner's Guide</a></li>
+                    <li><a href="keyboard_switches_guide.html">Switch Guide</a></li>
+                    <li><a href="keycaps_guide.html">Keycaps Guide</a></li>
+                    <li><a href="vendor_list.html">Vendor List (MY)</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Community</h4>
+                <ul>
+                    <li><a href="https://discord.com/">Discord Server</a></li>
+                    <li><a href="https://www.reddit.com/r/MechanicalKeyboards/">Reddit /r/mk</a></li>
+                    <li><a href="https://www.instagram.com/">Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2025 KeebKustoms. All rights reserved. 
+            <span style="color: var(--accent-secondary)">Click Clack.</span>
+        </div>
+    </footer>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T5JKHQ4ZSD"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        
+        gtag('config', 'G-T5JKHQ4ZSD');
+    </script>
+</body>
+</html>
