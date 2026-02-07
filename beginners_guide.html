@@ -48,9 +48,31 @@
         .footer-col ul li { margin-bottom: 10px; }
         .footer-col ul li a:hover { color: var(--accent-primary); padding-left: 5px; }
         .copyright { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #333; color: var(--text-muted); font-size: 0.9rem; }
-        @media (max-width: 768px) { .nav-links { display: none; } .footer-content { grid-template-columns: 1fr; } }
+        /* Mobile Menu Styling */
         .menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; color: var(--text-main); }
-        @media (max-width: 768px) { .menu-toggle { display: block; } }
+        
+        @media (max-width: 768px) {
+            .menu-toggle { display: block; }
+            .nav-links { 
+                display: none; 
+                position: absolute;
+                top: 70px; /* Below the header */
+                left: 0;
+                width: 100%;
+                background-color: var(--bg-header);
+                flex-direction: column;
+                padding: 20px;
+                border-bottom: 1px solid var(--border-color);
+                box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+                gap: 20px;
+                align-items: center;
+            }
+            .nav-links.active {
+                display: flex; /* Show menu when active */
+            }
+            .footer-content { grid-template-columns: 1fr; }
+        }
+
 
         /* --- PAGE SPECIFIC CSS --- */
         .blog-container { display: grid; grid-template-columns: 1fr 300px; gap: 40px; }
@@ -70,7 +92,20 @@
         .toc-list li { margin-bottom: 10px; }
         .toc-list a { color: var(--text-muted); font-size: 0.95rem; text-decoration: none; transition: color 0.2s; display: block; padding-left: 10px; border-left: 2px solid transparent; }
         .toc-list a:hover { color: var(--text-main); border-left-color: var(--accent-secondary); }
-        @media (max-width: 900px) { .blog-container { grid-template-columns: 1fr; } .toc-widget { position: static; margin-bottom: 30px; } }
+        @media (max-width: 900px) { 
+            .blog-container { 
+                display: flex; /* Switch to flex to enable reordering */
+                flex-direction: column; 
+            } 
+            .sidebar {
+                order: -1; /* Move sidebar (TOC) to the top */
+                margin-bottom: 30px;
+            }
+            .toc-widget { 
+                position: static; 
+                margin-bottom: 0; 
+            } 
+        }
     </style>
 </head>
 <body>
@@ -210,6 +245,17 @@
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'G-T5JKHQ4ZSD');
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+
+            if (menuToggle && navLinks) {
+                menuToggle.addEventListener('click', () => {
+                    navLinks.classList.toggle('active');
+                });
+            }
+        });
     </script>
 </body>
 </html>

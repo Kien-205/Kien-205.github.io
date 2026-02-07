@@ -31,9 +31,31 @@
         .footer-col h4 { color: var(--text-main); margin-bottom: 20px; font-size: 1.1rem; border-left: 3px solid var(--accent-primary); padding-left: 10px; }
         .footer-col ul li { margin-bottom: 10px; }
         .copyright { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #333; color: var(--text-muted); font-size: 0.9rem; }
-        @media (max-width: 768px) { .nav-links { display: none; } .footer-content { grid-template-columns: 1fr; } }
+        /* Mobile Menu Styling */
         .menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; color: var(--text-main); }
-        @media (max-width: 768px) { .menu-toggle { display: block; } }
+        
+        @media (max-width: 768px) {
+            .menu-toggle { display: block; }
+            .nav-links { 
+                display: none; 
+                position: absolute;
+                top: 70px; /* Below the header */
+                left: 0;
+                width: 100%;
+                background-color: var(--bg-header);
+                flex-direction: column;
+                padding: 20px;
+                border-bottom: 1px solid var(--border-color);
+                box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+                gap: 20px;
+                align-items: center;
+            }
+            .nav-links.active {
+                display: flex; /* Show menu when active */
+            }
+            .footer-content { grid-template-columns: 1fr; }
+        }
+
 
         /* --- PAGE SPECIFIC CSS --- */
         .switch-guide-container { max-width: 900px; margin: 0 auto; }
@@ -249,6 +271,17 @@
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'G-T5JKHQ4ZSD');
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+
+            if (menuToggle && navLinks) {
+                menuToggle.addEventListener('click', () => {
+                    navLinks.classList.toggle('active');
+                });
+            }
+        });
     </script>
 </body>
 </html>
