@@ -1,0 +1,255 @@
+<?php
+/*
+ * Home Page - index.php
+ * This file defines the specific content for the homepage and then 
+ * includes the master_layout.php to render the full page.
+ */
+
+// 1. SEO & Page Configuration
+$page_title = "KeebKustoms | Simple Guide to Custom Keyboards";
+$meta_description = "A beginner-friendly guide to custom mechanical keyboard customisation. Learn about switches, keycaps, and how to build your first keyboard.";
+$show_breadcrumbs = false;
+
+// SEO IMAGE SETTINGS
+// This variable is used by master_layout.php for OG Tags and below for the CSS background
+$hero_image_path = "images/aesthetic_colorful_mechanical_keyboard.jpg";
+
+// STRUCTURAL DATA (JSON-LD)
+// Schema for the Homepage (WebSite)
+$json_ld_data = [
+    "@context" => "https://schema.org",
+    "@type" => "WebSite",
+    "name" => "KeebKustoms",
+    "alternateName" => "KeebKustoms Malaysia",
+    "description" => $meta_description,
+    "url" => (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]",
+    "potentialAction" => [
+        "@type" => "SearchAction",
+        "target" => (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]/search?q={search_term_string}",
+        "query-input" => "required name=search_term_string"
+    ]
+];
+
+// 2. Define the Page Content using Output Buffering
+ob_start(); 
+?>
+
+<!-- Embedded CSS for Homepage-specific elements -->
+<style>
+    /* Hero Section */
+    .hero-section {
+        background: linear-gradient(135deg, rgba(30,30,30,0.8), rgba(18,18,18,0.9)), 
+                    url('<?php echo $hero_image_path; ?>');
+        background-size: cover;
+        background-position: center;
+        padding: 80px 40px;
+        border-radius: 12px;
+        margin-bottom: 60px;
+        text-align: center;
+        border: 1px solid var(--border-color);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    .hero-title {
+        font-size: 3rem;
+        font-weight: 800;
+        margin-bottom: 20px;
+        letter-spacing: -1px;
+        /* Updated gradient for better contrast/impact */
+        background: -webkit-linear-gradient(0deg, var(--text-main), var(--accent-primary));
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .hero-subtitle {
+        font-size: 1.2rem;
+        color: var(--text-muted);
+        max-width: 700px;
+        margin: 0 auto 40px auto;
+    }
+
+    .cta-button {
+        display: inline-block;
+        background-color: var(--accent-secondary);
+        color: white;
+        padding: 12px 30px;
+        border-radius: 6px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .cta-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(255, 0, 85, 0.4);
+        color: white;
+    }
+
+    /* Features Grid */
+    .grid-section {
+        display: grid;
+        /* Default to 1 column on mobile */
+        grid-template-columns: 1fr;
+        gap: 30px;
+        margin-bottom: 60px;
+    }
+    
+    /* Force 2-column grid on tablet/desktop to create a balanced 2x2 layout */
+    @media (min-width: 768px) {
+        .grid-section {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    .card {
+        background-color: var(--bg-panel);
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        padding: 30px;
+        transition: transform 0.2s ease, border-color 0.2s ease;
+        /* Ensure cards stretch to fill height of the grid row */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+        border-color: var(--accent-primary);
+    }
+
+    .card-icon {
+        font-size: 2rem;
+        margin-bottom: 20px;
+        color: var(--accent-primary);
+    }
+
+    .card h3 {
+        margin-bottom: 15px;
+        font-size: 1.4rem;
+    }
+
+    .card p {
+        color: var(--text-muted);
+        font-size: 0.95rem;
+        margin-bottom: 20px;
+    }
+
+    .read-more {
+        color: var(--accent-primary);
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    /* Content Block */
+    .seo-content-block {
+        max-width: 800px;
+        margin: 0 auto;
+        padding-top: 40px;
+        border-top: 1px solid var(--border-color);
+    }
+
+    .seo-content-block h2 {
+        font-size: 2rem;
+        margin-bottom: 25px;
+        color: var(--text-main);
+    }
+    
+    .seo-content-block p {
+        margin-bottom: 20px;
+        color: var(--text-muted);
+    }
+
+    .highlight {
+        color: var(--accent-primary);
+    }
+</style>
+
+<!-- Hero Banner -->
+<section class="hero-section">
+    <!-- H1 Updated for SEO specificity -->
+    <h1 class="hero-title">Start Your Custom Mechanical Keyboard Journey</h1>
+    <p class="hero-subtitle">
+        A simple guide to building keyboards that feel better, sound better, and look exactly how you want them to.
+    </p>
+    <a href="beginners_guide.php" class="cta-button">Read the Basics</a>
+</section>
+
+<!-- Main Navigation Cards -->
+<section class="grid-section">
+    <!-- Card 1 -->
+    <article class="card">
+        <div>
+            <div class="card-icon">⌨️</div>
+            <h3>Beginner's Guide</h3>
+            <p>What is a mechanical keyboard? Learn the basics of sizes (60%, TKL), parts, and how to get started easily.</p>
+        </div>
+        <a href="beginners_guide.php" class="read-more">Learn the Basics &rarr;</a>
+    </article>
+
+    <!-- Card 2 -->
+    <article class="card">
+        <div>
+            <div class="card-icon">⚙️</div>
+            <h3>Guide to Switches</h3>
+            <p>Red, Blue, or Brown? Understand the simple differences between Linear, Tactile, and Clicky switches.</p>
+        </div>
+        <a href="keyboard_switches_guide.php" class="read-more">Find Your Switch &rarr;</a>
+    </article>
+
+    <!-- Card 3 -->
+    <article class="card">
+        <div>
+            <div class="card-icon">🎨</div>
+            <h3>Types of Keycaps</h3>
+            <p>From durable PBT plastic to smooth ABS. Discover different profiles like Cherry and SA to fit your typing style.</p>
+        </div>
+        <a href="keycaps_guide.php" class="read-more">Explore Keycaps &rarr;</a>
+    </article>
+
+    <!-- Card 4 -->
+    <article class="card">
+        <div>
+            <div class="card-icon">🛍️</div>
+            <h3>Vendor Directory (Malaysia)</h3>
+            <p>Where to buy parts in Malaysia? A curated list of trusted local stores for switches, lube, and custom kits.</p>
+        </div>
+        <a href="vendor_list.php" class="read-more">Shop Local &rarr;</a>
+    </article>
+</section>
+
+<!-- SEO Rich Text Area -->
+<section class="seo-content-block">
+    <h2>Why Go Mechanical?</h2>
+    <p>
+        Most keyboards are just plastic sheets. A <strong class="highlight">mechanical keyboard</strong> uses individual switches for every key. It's a simple upgrade that changes how you interact with your computer every day.
+    </p>
+    
+    <h3>1. Better Feel</h3>
+    <p>
+        Standard keyboards feel mushy. Mechanical switches feel crisp and responsive. You don't have to press the key all the way down for it to register, which can actually help reduce finger strain over time.
+    </p>
+
+    <h3>2. Custom Sound</h3>
+    <p>
+        You can choose how your keyboard sounds. Do you want the loud "click" of a typewriter? Or the deep, quiet "thock" of a custom board? The choice is entirely yours based on the parts you pick.
+    </p>
+
+    <h3>3. Personal Style</h3>
+    <p>
+        Keyboards don't have to be boring black rectangles. With custom keycaps, you can match your keyboard to your room, your favorite colors, or even your favorite movie. It's functional art for your desk.
+    </p>
+</section>
+
+<?php
+// 3. Capture the buffer and assign it to the variable expected by master_layout.php
+$page_content = ob_get_clean();
+
+// 4. Include the Master Layout
+include 'master_layout.php';
+?>
