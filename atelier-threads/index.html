@@ -108,7 +108,7 @@
                             <p class="text-indigo-100 font-medium text-sm">Storewide Discount</p>
                             <p class="text-indigo-200 text-xs mt-1 border border-indigo-300/30 inline-block px-2 py-1 rounded bg-indigo-900/20 font-mono">CODE: THREADS10</p>
                         </div>
-                        <button id="btn-claim-SAVE10" onclick="claimVoucher('SAVE10')" class="relative z-10 bg-white text-indigo-600 px-5 py-2 rounded-lg font-bold hover:bg-gray-50 transition-colors shadow-sm">Claim</button>
+                        <button id="btn-claim-THREADS10" onclick="claimVoucher('THREADS10')" class="relative z-10 bg-white text-indigo-600 px-5 py-2 rounded-lg font-bold hover:bg-gray-50 transition-colors shadow-sm">Claim</button>
                     </div>
                     <div class="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-6 text-white flex justify-between items-center shadow-md relative overflow-hidden">
                         <div class="absolute -right-6 -top-6 w-24 h-24 bg-white opacity-5 rounded-full"></div>
@@ -118,7 +118,7 @@
                             <p class="text-gray-300 font-medium text-sm">Any Purchase</p>
                             <p class="text-gray-400 text-xs mt-1 border border-gray-600 inline-block px-2 py-1 rounded bg-gray-800 font-mono">CODE: EASY5</p>
                         </div>
-                        <button id="btn-claim-WELCOME5" onclick="claimVoucher('WELCOME5')" class="relative z-10 bg-white text-gray-900 px-5 py-2 rounded-lg font-bold hover:bg-gray-200 transition-colors shadow-sm">Claim</button>
+                        <button id="btn-claim-EASY5" onclick="claimVoucher('EASY5')" class="relative z-10 bg-white text-gray-900 px-5 py-2 rounded-lg font-bold hover:bg-gray-200 transition-colors shadow-sm">Claim</button>
                     </div>
                 </div>
             </div>
@@ -662,8 +662,8 @@
 
         // --- Voucher System State ---
         const vouchersDB = {
-            'SAVE10': { type: 'percent', value: 0.10, label: '10% OFF' },
-            'WELCOME5': { type: 'fixed', value: 5.00, label: 'RM5.00 OFF' }
+            'THREADS10': { type: 'percent', value: 0.10, label: '10% OFF' },
+            'EASY5': { type: 'fixed', value: 5.00, label: 'RM5.00 OFF' }
         };
         let claimedVouchers = new Set();
         let appliedVoucherCode = null;
